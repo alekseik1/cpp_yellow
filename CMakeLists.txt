@@ -16,3 +16,6 @@ add_executable(mean_temperature w1/mean_temperature.cpp)
 
 project(blocks)
 add_executable(blocks w1/blocks.cpp)
+
+project(region_base)
+add_executable(region_base w1/base.cpp)
