@@ -22,3 +22,6 @@ add_executable(region_base w1/base.cpp)
 
 project(task_tracker)
 add_executable(task_tracker w1/task_tracker.cpp)
+
+project(all_square)
+add_executable(all_square w1/all_square.cpp)
