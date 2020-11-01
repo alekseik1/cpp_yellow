@@ -19,3 +19,6 @@ add_executable(blocks w1/blocks.cpp)
 
 project(region_base)
 add_executable(region_base w1/base.cpp)
+
+project(task_tracker)
+add_executable(task_tracker w1/task_tracker.cpp)
