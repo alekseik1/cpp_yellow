@@ -28,3 +28,12 @@ add_executable(all_square w1/all_square.cpp)
 
 project(get_ref_strict)
 add_executable(get_ref_strict w1/get_ref_strict.cpp)
+
+project(decomp_correct)
+add_executable(decomp_correct w2/decomposition/correct.cpp)
+
+project(decomp_starter)
+add_executable(decomp_starter w2/decomposition/starter.cpp)
+
+#project(correct_decomp)
+#add_executable(w2/decomposition/correct_decomp.cpp)
