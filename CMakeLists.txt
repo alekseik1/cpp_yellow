@@ -43,3 +43,6 @@ add_executable(full_decomposition w2/fulll_decomposition/main.cpp)
 
 project(print_vector_part)
 add_executable(print_vector_part w2/printVectorPart.cpp)
+
+project(set_part)
+add_executable(set_part w2/set_part.cpp)
