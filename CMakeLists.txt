@@ -37,3 +37,6 @@ add_executable(decomp_starter w2/decomposition/starter.cpp)
 
 #project(correct_decomp)
 #add_executable(w2/decomposition/correct_decomp.cpp)
+
+project(full_decomposition)
+add_executable(full_decomposition w2/fulll_decomposition/main.cpp)
