@@ -46,3 +46,6 @@ add_executable(print_vector_part w2/printVectorPart.cpp)
 
 project(set_part)
 add_executable(set_part w2/set_part.cpp)
+
+project(word_split)
+add_executable(word_split w2/word_split.cpp)
