@@ -40,3 +40,6 @@ add_executable(decomp_starter w2/decomposition/starter.cpp)
 
 project(full_decomposition)
 add_executable(full_decomposition w2/fulll_decomposition/main.cpp)
+
+project(print_vector_part)
+add_executable(print_vector_part w2/printVectorPart.cpp)
