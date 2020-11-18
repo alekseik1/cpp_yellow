@@ -55,3 +55,6 @@ add_executable(remove_duplicates w2/iterators/remove_duplicates.cpp)
 
 project(permutations)
 add_executable(permutations w2/iterators/permutations.cpp)
+
+project(demographic)
+add_executable(demographic w2/iterators/demographic.cpp)
