@@ -52,3 +52,6 @@ add_executable(word_split w2/word_split.cpp)
 
 project(remove_duplicates)
 add_executable(remove_duplicates w2/iterators/remove_duplicates.cpp)
+
+project(permutations)
+add_executable(permutations w2/iterators/permutations.cpp)
