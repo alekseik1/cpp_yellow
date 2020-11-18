@@ -49,3 +49,6 @@ add_executable(set_part w2/set_part.cpp)
 
 project(word_split)
 add_executable(word_split w2/word_split.cpp)
+
+project(remove_duplicates)
+add_executable(remove_duplicates w2/iterators/remove_duplicates.cpp)
