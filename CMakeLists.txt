@@ -58,3 +58,9 @@ add_executable(permutations w2/iterators/permutations.cpp)
 
 project(demographic)
 add_executable(demographic w2/iterators/demographic.cpp)
+
+project(merge_sort2)
+add_executable(merge_sort2 w2/iterators/merge_sort2.cpp)
+
+project(merge_sort3)
+add_executable(merge_sort3 w2/iterators/merge_sort3.cpp)
