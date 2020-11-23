@@ -73,3 +73,9 @@ add_executable(symbol_grouping w4/algos/symbol_grouping.cpp)
 
 project(prefix_grouping)
 add_executable(prefix_groupung w4/algos/prefix_grouping.cpp)
+
+project(build_expression)
+add_executable(build_expression w4/algos/build_expression.cpp)
+
+project(build_expression_less_braces)
+add_executable(build_expression_less_braces w4/algos/build_expression_less_braces.cpp)
