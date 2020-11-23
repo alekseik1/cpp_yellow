@@ -39,7 +39,7 @@ add_executable(decomp_starter w2/decomposition/starter.cpp)
 #add_executable(w2/decomposition/correct_decomp.cpp)
 
 project(full_decomposition)
-add_executable(full_decomposition w2/fulll_decomposition/main.cpp)
+add_executable(full_decomposition w3/fulll_decomposition/main.cpp)
 
 project(print_vector_part)
 add_executable(print_vector_part w2/printVectorPart.cpp)
@@ -51,16 +51,16 @@ project(word_split)
 add_executable(word_split w2/word_split.cpp)
 
 project(remove_duplicates)
-add_executable(remove_duplicates w2/iterators/remove_duplicates.cpp)
+add_executable(remove_duplicates w4/iterators/remove_duplicates.cpp)
 
 project(permutations)
-add_executable(permutations w2/iterators/permutations.cpp)
+add_executable(permutations w4/iterators/permutations.cpp)
 
 project(demographic)
-add_executable(demographic w2/iterators/demographic.cpp)
+add_executable(demographic w4/iterators/demographic.cpp)
 
 project(merge_sort2)
-add_executable(merge_sort2 w2/iterators/merge_sort2.cpp)
+add_executable(merge_sort2 w4/iterators/merge_sort2.cpp)
 
 project(merge_sort3)
-add_executable(merge_sort3 w2/iterators/merge_sort3.cpp)
+add_executable(merge_sort3 w4/iterators/merge_sort3.cpp)
