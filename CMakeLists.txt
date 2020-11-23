@@ -67,3 +67,9 @@ add_executable(merge_sort3 w4/iterators/merge_sort3.cpp)
 
 project(nearest_element)
 add_executable(nearest_element w4/algos/nearest_element.cpp)
+
+project(symbol_grouping)
+add_executable(symbol_grouping w4/algos/symbol_grouping.cpp)
+
+project(prefix_grouping)
+add_executable(prefix_groupung w4/algos/prefix_grouping.cpp)
