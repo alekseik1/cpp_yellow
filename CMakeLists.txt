@@ -64,3 +64,6 @@ add_executable(merge_sort2 w4/iterators/merge_sort2.cpp)
 
 project(merge_sort3)
 add_executable(merge_sort3 w4/iterators/merge_sort3.cpp)
+
+project(nearest_element)
+add_executable(nearest_element w4/algos/nearest_element.cpp)
