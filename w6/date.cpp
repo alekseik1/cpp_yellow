@@ -20,8 +20,3 @@ Date ParseDate(istream& is) {
     strptime(string_date.c_str(), "%F", &tm);
     return {tm.tm_mday, tm.tm_mon + 1, tm.tm_year + 1900};
 }
-
-int main() {
-    Date d = ParseDate(cin);
-    cout << d;
-}
