@@ -79,3 +79,6 @@ add_executable(build_expression w4/algos/build_expression.cpp)
 
 project(build_expression_less_braces)
 add_executable(build_expression_less_braces w4/algos/build_expression_less_braces.cpp)
+
+project(notify)
+add_executable(notify w5/notify.cpp)
