@@ -20,3 +20,22 @@ Date ParseDate(istream& is) {
     strptime(string_date.c_str(), "%F", &tm);
     return {tm.tm_mday, tm.tm_mon + 1, tm.tm_year + 1900};
 }
+
+bool Date::operator<(const Date &other) const {
+    if (year != other.year) return year < other.year;
+    if (month != other.month) return month < other.month;
+    if (day != other.day) return day < other.day;
+    return false;
+}
+
+bool Date::operator>(const Date &other) const {
+    if (year != other.year) return year > other.year;
+    if (month != other.month) return month > other.month;
+    if (day != other.day) return day > other.day;
+    return false;
+}
+
+bool Date::operator<=(const Date &other) const { return !(*this > other); }
+bool Date::operator>=(const Date &other) const { return !(*this < other); }
+bool Date::operator==(const Date &other) const { return (*this <= other) && (*this >= other);}
+bool Date::operator!=(const Date &other) const { return !(*this == other); }

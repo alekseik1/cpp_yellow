@@ -9,6 +9,12 @@ public:
     const int month = 1;
     const int year = 1900;
     Date(const int& day, const int& month, const int& year);
+    bool operator<(const Date &other) const;
+    bool operator<=(const Date &other) const;
+    bool operator>=(const Date &other) const;
+    bool operator>(const Date &other) const;
+    bool operator==(const Date &other) const;
+    bool operator!=(const Date &other) const;
 };
 
 Date ParseDate(istream& is);
