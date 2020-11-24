@@ -88,3 +88,6 @@ add_executable(figures w5/figures.cpp)
 
 project(w5_refactoring)
 add_executable(w5_refactoring w5/refactoring.cpp)
+
+project(final_project)
+add_executable(final_project w6/main.cpp)
