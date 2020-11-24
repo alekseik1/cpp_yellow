@@ -85,3 +85,6 @@ add_executable(notify w5/notify.cpp)
 
 project(figures)
 add_executable(figures w5/figures.cpp)
+
+project(w5_refactoring)
+add_executable(w5_refactoring w5/refactoring.cpp)
