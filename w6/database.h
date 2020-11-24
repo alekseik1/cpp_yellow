@@ -1,24 +1,27 @@
 #pragma once
+
 #include "date.h"
-#include <vector>
 #include <string>
-#include <map>
 #include <set>
+#include <map>
+#include <functional>
+#include <vector>
+#include <utility>
 
 using namespace std;
-using Entry = pair<Date, string>;
+using BaseEntry = pair<Date, string>;
 
 class Database {
 public:
-    void Add(const Date& date, const string& event);
-    void Print(ostream& os) const;
-    size_t RemoveIf(function<bool(const Date& date, const string& event)> predicate);
-    vector<Entry> FindIf(function<bool(const Date& date, const string& event)> predicate);
-    Entry Last(const Date& date) const;
+    void Add(const Date &date, const string &event);
+    size_t RemoveIf(function<bool(const Date &date, const string &even)> pred);
+    vector<BaseEntry> FindIf(function<bool(const Date &date, const string &even)> pred) const;
+    void Print(ostream &os) const;
+    BaseEntry Last(const Date &date) const;
 private:
-    map<Date, vector<string>> _data;
-    map<Date, set<string>> _dataSet;
-    vector<Entry> filterEvents(function<bool(const Date &date, const string &event)> pred) const;
+    map<Date, vector<string>> _base;
+    map<Date, set<string>> _baseSet;
+    vector<BaseEntry> makeEvents(function<bool(const Date &date, const string &event)> pred) const;
 };
 
-ostream& operator<<(ostream &os, const Entry &entry);
+ostream &operator<<(ostream &os, const BaseEntry &entry);

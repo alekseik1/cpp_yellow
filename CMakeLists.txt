@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.15)
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 add_compile_options(-Wall)
 
 project(Matrix VERSION 0.1)
@@ -90,4 +90,14 @@ project(w5_refactoring)
 add_executable(w5_refactoring w5/refactoring.cpp)
 
 project(final_project)
-add_executable(final_project w6/main.cpp)
+include_directories(w6)
+add_executable(
+        final_project
+        w6/main.cpp
+        w6/condition_parser.cpp
+        w6/condition_parser_test.cpp
+        w6/token.cpp
+        w6/database.cpp
+        w6/date.cpp
+        w6/node.cpp
+)

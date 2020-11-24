@@ -1,41 +1,75 @@
 #include "date.h"
-#include <iostream>
+#include <exception>
 #include <iomanip>
-#include <ctime>
 
-ostream& operator<<(ostream& os, const Date& date) {
-    os << setfill('0') << setw(4) << date.year << "-"
-    << setfill('0') << setw(2) << date.month << "-"
-    << setfill('0') << setw(2) << date.day;
-    return os;
+Date::Date() { setDate(1, 1, 1); }
+Date::Date(const string &str) {}
+Date::Date(int year, int month, int day) { setDate(year, month, day); }
+Date::Date(istream &is) {
+    string str;
+    is >> str;
+    setDate(str);
 }
-Date::Date(const int& day, const int& month, const int& year): day(day), month(month), year(year) {
-    if ((day > 31) || (day < 1)) { throw runtime_error("Day should be in [1, 31]"); }
-    if ((month > 12) || (month < 1)) { throw runtime_error("Month should be in [1, 12]"); }
-};
+int Date::GetYear() const { return _year; }
+int Date::GetMonth() const { return _month; }
+int Date::GetDay() const { return _day; }
 
-Date ParseDate(istream& is) {
-    string string_date; is >> string_date;
-    tm tm{};
-    strptime(string_date.c_str(), "%F", &tm);
-    return {tm.tm_mday, tm.tm_mon + 1, tm.tm_year + 1900};
+void Date::checkFormat(bool arg, const string &str) { if (!arg) throw invalid_argument("Wrong date format: " + str); }
+
+void Date::setDate(int year, int month, int day) {
+    if (month < 1 || month > 12) throw invalid_argument("Month value is invalid: " + to_string(month));
+    if (day < 1 || day > 31) throw invalid_argument("Day value is invalid: " + to_string(day));
+
+    _year = year;
+    _month = month;
+    _day = day;
 }
 
-bool Date::operator<(const Date &other) const {
-    if (year != other.year) return year < other.year;
-    if (month != other.month) return month < other.month;
-    if (day != other.day) return day < other.day;
+void Date::setDate(const string &str) {
+    istringstream ss(str.c_str());
+    int year, month, day;
+    char c;
+    checkFormat(bool(ss >> year), str);
+    checkFormat(bool(ss >> c), str);
+    checkFormat(c == '-', str);
+    checkFormat(bool(ss >> month), str);
+    checkFormat(bool(ss >> c), str);
+    checkFormat(c == '-', str);
+    checkFormat(bool(ss >> day), str);
+    checkFormat(!(ss >> c), str);
+    setDate(year, month, day);
+}
+
+bool operator<(const Date &lhs, const Date &rhs) {
+    if (lhs.GetYear() < rhs.GetYear()) return true;
+    else if (lhs.GetYear() > rhs.GetYear()) return false;
+
+    if (lhs.GetMonth() < rhs.GetMonth()) return true;
+    else if (lhs.GetMonth() > rhs.GetMonth()) return false;
+
+    if (lhs.GetDay() < rhs.GetDay()) return true;
+
     return false;
 }
 
-bool Date::operator>(const Date &other) const {
-    if (year != other.year) return year > other.year;
-    if (month != other.month) return month > other.month;
-    if (day != other.day) return day > other.day;
-    return false;
+bool operator==(const Date &lhs, const Date &rhs) {
+    return (lhs.GetYear() == rhs.GetYear() &&
+           lhs.GetMonth() == rhs.GetMonth() &&
+           lhs.GetDay() == rhs.GetDay());
 }
 
-bool Date::operator<=(const Date &other) const { return !(*this > other); }
-bool Date::operator>=(const Date &other) const { return !(*this < other); }
-bool Date::operator==(const Date &other) const { return (*this <= other) && (*this >= other);}
-bool Date::operator!=(const Date &other) const { return !(*this == other); }
+bool operator>=(const Date &lhs, const Date &rhs) { return !(lhs < rhs); }
+
+bool operator>(const Date &lhs, const Date &rhs) { return !(lhs < rhs || lhs == rhs); }
+
+bool operator<=(const Date &lhs, const Date &rhs) { return !(lhs > rhs); }
+
+bool operator!=(const Date &lhs, const Date &rhs) { return !(lhs == rhs); }
+
+ostream &operator<<(ostream &stream, const Date &date) {
+    stream << setfill('0') << setw(4) << date.GetYear() << "-"
+           << setw(2) << date.GetMonth() << "-" << setw(2) << date.GetDay();
+    return stream;
+}
+
+Date ParseDate(istream &is) { return {is}; }

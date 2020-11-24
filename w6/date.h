@@ -1,21 +1,34 @@
 #pragma once
-#include <iostream>
-#include <exception>
+
+#include <string>
+#include <ostream>
 
 using namespace std;
-class Date {
+
+class Date
+{
 public:
-    const int day = 1;
-    const int month = 1;
-    const int year = 1900;
-    Date(const int& day, const int& month, const int& year);
-    bool operator<(const Date &other) const;
-    bool operator<=(const Date &other) const;
-    bool operator>=(const Date &other) const;
-    bool operator>(const Date &other) const;
-    bool operator==(const Date &other) const;
-    bool operator!=(const Date &other) const;
+    Date();
+    Date(const string &str);
+    Date(int year, int month, int day);
+    Date(istream &is);
+    int GetYear() const;
+    int GetMonth() const;
+    int GetDay() const;
+private:
+    int _year;
+    int _month;
+    int _day;
+    void checkFormat(bool arg, const string& str);
+    void setDate(int year, int month, int day);
+    void setDate(const string &str);
 };
 
-Date ParseDate(istream& is);
-ostream& operator<<(ostream& os, const Date& date);
+bool operator<(const Date &lhs, const Date &rhs);
+bool operator==(const Date &lhs, const Date &rhs);
+bool operator>=(const Date &lhs, const Date &rhs);
+bool operator>(const Date &lhs, const Date &rhs);
+bool operator<=(const Date &lhs, const Date &rhs);
+bool operator!=(const Date &lhs, const Date &rhs);
+ostream &operator<<(ostream &stream, const Date &date);
+Date ParseDate(istream &is);
